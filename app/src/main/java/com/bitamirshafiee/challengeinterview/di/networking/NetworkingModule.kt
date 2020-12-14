@@ -56,10 +56,5 @@ class NetworkingModule {
     fun provideStackOverflowApi(retrofit: Retrofit): StackOverflowApi =
         retrofit.create(StackOverflowApi::class.java)
 
-    @Provides
-    @NetworkScope
-    fun provideSearchUseCase(stackOverflowApi: StackOverflowApi): SearchUseCase =
-        SearchUseCaseImpl(stackOverflowApi)
-
 
 }
