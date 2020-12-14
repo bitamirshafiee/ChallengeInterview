@@ -1,10 +1,7 @@
 package com.bitamirshafiee.challengeinterview.di.networking
 
 import com.bitamirshafiee.challengeinterview.common.Consts.baseUrlProvider
-import com.bitamirshafiee.challengeinterview.repository.RequestHeaderInterceptor
-import com.bitamirshafiee.challengeinterview.repository.SearchUseCase
-import com.bitamirshafiee.challengeinterview.repository.SearchUseCaseImpl
-import com.bitamirshafiee.challengeinterview.repository.StackOverflowApi
+import com.bitamirshafiee.challengeinterview.repository.*
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor

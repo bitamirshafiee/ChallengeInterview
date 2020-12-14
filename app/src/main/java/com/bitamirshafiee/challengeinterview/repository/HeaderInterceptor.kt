@@ -1,4 +1,4 @@
-package com.bitamirshafiee.challengeinterview.di.networking
+package com.bitamirshafiee.challengeinterview.repository
 
 import javax.inject.Qualifier
 
