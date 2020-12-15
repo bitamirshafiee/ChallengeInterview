@@ -1,12 +1,12 @@
 package com.bitamirshafiee.challengeinterview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import com.bitamirshafiee.challengeinterview.di.networking.DaggerNetworkingComponent
-import com.bitamirshafiee.challengeinterview.di.networking.NetworkingComponent
-import com.bitamirshafiee.challengeinterview.di.networking.NetworkingModule
+import com.bitamirshafiee.challengeinterview.di.repository.component.DaggerRepositoryComponent
+import com.bitamirshafiee.challengeinterview.di.repository.component.RepositoryComponent
+import com.bitamirshafiee.challengeinterview.di.repository.module.ApplicationModule
 import com.bitamirshafiee.challengeinterview.questionlist.SearchFragment
 
 class MainActivity : AppCompatActivity() {
@@ -28,9 +28,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getNetworkingComponent() : NetworkingComponent{
-        return DaggerNetworkingComponent.builder()
-            .networkingModule(NetworkingModule())
+    fun getNetworkingComponent() : RepositoryComponent {
+        return DaggerRepositoryComponent.builder().applicationModule(ApplicationModule((application)))
             .build()
     }
 }

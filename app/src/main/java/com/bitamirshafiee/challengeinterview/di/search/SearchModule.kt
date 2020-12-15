@@ -1,6 +1,5 @@
 package com.bitamirshafiee.challengeinterview.di.search
 
-import com.bitamirshafiee.challengeinterview.di.networking.NetworkScope
 import com.bitamirshafiee.challengeinterview.repository.SearchUseCase
 import com.bitamirshafiee.challengeinterview.questionlist.QuestionListViewModelImpl
 import com.bitamirshafiee.challengeinterview.repository.SearchUseCaseImpl

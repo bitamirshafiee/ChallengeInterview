@@ -1,6 +1,7 @@
-package com.bitamirshafiee.challengeinterview.di.networking
+package com.bitamirshafiee.challengeinterview.di.repository.module
 
 import com.bitamirshafiee.challengeinterview.common.Consts.baseUrlProvider
+import com.bitamirshafiee.challengeinterview.di.repository.scope.NetworkScope
 import com.bitamirshafiee.challengeinterview.repository.*
 import dagger.Module
 import dagger.Provides
@@ -50,11 +51,5 @@ class NetworkingModule {
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(client)
             .build()
-
-    @Provides
-    @NetworkScope
-    fun provideStackOverflowApi(retrofit: Retrofit): StackOverflowApi =
-        retrofit.create(StackOverflowApi::class.java)
-
 
 }

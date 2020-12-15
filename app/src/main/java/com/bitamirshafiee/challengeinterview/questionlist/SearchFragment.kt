@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bitamirshafiee.challengeinterview.MainActivity
 import com.bitamirshafiee.challengeinterview.R
-import com.bitamirshafiee.challengeinterview.di.networking.DaggerNetworkingComponent
-import com.bitamirshafiee.challengeinterview.di.networking.NetworkingModule
 import com.bitamirshafiee.challengeinterview.di.search.SearchModule
 import kotlinx.android.synthetic.main.fragment_question.*
 import javax.inject.Inject
