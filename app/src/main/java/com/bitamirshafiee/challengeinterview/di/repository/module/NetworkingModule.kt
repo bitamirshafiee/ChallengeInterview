@@ -1,6 +1,8 @@
 package com.bitamirshafiee.challengeinterview.di.repository.module
 
 import com.bitamirshafiee.challengeinterview.common.Consts.baseUrlProvider
+import com.bitamirshafiee.challengeinterview.di.repository.scope.BodyLogging
+import com.bitamirshafiee.challengeinterview.di.repository.scope.HeaderInterceptor
 import com.bitamirshafiee.challengeinterview.di.repository.scope.NetworkScope
 import com.bitamirshafiee.challengeinterview.repository.*
 import dagger.Module

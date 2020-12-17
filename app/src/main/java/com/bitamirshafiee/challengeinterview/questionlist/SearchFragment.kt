@@ -9,11 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bitamirshafiee.challengeinterview.MainActivity
 import com.bitamirshafiee.challengeinterview.R
+import com.bitamirshafiee.challengeinterview.databinding.FragmentQuestionBinding
 import com.bitamirshafiee.challengeinterview.di.search.SearchModule
-import kotlinx.android.synthetic.main.fragment_question.*
 import javax.inject.Inject
 
 class SearchFragment : Fragment() {
+
+    private var _binding : FragmentQuestionBinding? = null
+    private val binding get() = _binding
 
     @Inject
     lateinit var factory: QuestionListViewModelImpl.Factory
@@ -35,14 +38,16 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_question, container, false)
+
+        _binding = FragmentQuestionBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button.setOnClickListener {
-            viewModel.search(editTextSearch.text.toString())
+        binding?.button?.setOnClickListener {
+            viewModel.search(binding?.editTextSearch?.text.toString())
         }
 
         viewModel.getShowList().observe(viewLifecycleOwner, {
@@ -53,8 +58,13 @@ class SearchFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            recyclerView.adapter = adapter
+            binding?.recyclerView?.adapter = adapter
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {
