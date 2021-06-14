@@ -1,9 +1,13 @@
 package com.bitamirshafiee.challengeinterview.di.repository.module
 
+import androidx.lifecycle.ViewModelProvider
 import com.bitamirshafiee.challengeinterview.common.Consts.baseUrlProvider
+import com.bitamirshafiee.challengeinterview.common.ViewModelFactory
+import com.bitamirshafiee.challengeinterview.common.helper.ImageLoader
 import com.bitamirshafiee.challengeinterview.di.repository.scope.BodyLogging
 import com.bitamirshafiee.challengeinterview.di.repository.scope.HeaderInterceptor
 import com.bitamirshafiee.challengeinterview.di.repository.scope.NetworkScope
+import com.bitamirshafiee.challengeinterview.di.search.SearchScope
 import com.bitamirshafiee.challengeinterview.repository.*
 import dagger.Module
 import dagger.Provides
@@ -53,5 +57,11 @@ class NetworkingModule {
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(client)
             .build()
+
+
+    @Provides
+    @NetworkScope
+    fun provideViewModelFactory(searchUseCase: SearchUseCase, imageLoader: ImageLoader): ViewModelProvider.Factory =
+        ViewModelFactory(searchUseCase, imageLoader)
 
 }

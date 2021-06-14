@@ -2,6 +2,7 @@ package com.bitamirshafiee.challengeinterview.di.repository.module
 
 import android.app.Application
 import android.content.Context
+import com.bitamirshafiee.challengeinterview.common.helper.ImageLoader
 import com.bitamirshafiee.challengeinterview.di.repository.scope.ApplicationScope
 import com.bitamirshafiee.challengeinterview.di.repository.scope.NetworkScope
 import com.bitamirshafiee.challengeinterview.repository.StackOverflowApi

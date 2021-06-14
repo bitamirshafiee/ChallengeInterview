@@ -1,5 +1,10 @@
 package com.bitamirshafiee.challengeinterview.di.search
 
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
+import com.bitamirshafiee.challengeinterview.common.ViewModelFactory
+import com.bitamirshafiee.challengeinterview.common.helper.ImageLoader
+import com.bitamirshafiee.challengeinterview.di.repository.scope.ApplicationScope
 import com.bitamirshafiee.challengeinterview.repository.SearchUseCase
 import com.bitamirshafiee.challengeinterview.questionlist.QuestionListViewModelImpl
 import com.bitamirshafiee.challengeinterview.repository.SearchUseCaseImpl
@@ -9,16 +14,14 @@ import dagger.Provides
 
 
 @Module
-class SearchModule {
-
-    @SearchScope
-    @Provides
-    fun provideSearchViewModelFactory(searchUseCase: SearchUseCase):
-            QuestionListViewModelImpl.Factory =
-        QuestionListViewModelImpl.Factory(searchUseCase)
+class SearchModule(private val activity : FragmentActivity) {
 
     @Provides
     @SearchScope
     fun provideSearchUseCase(stackOverflowApi: StackOverflowApi): SearchUseCase =
         SearchUseCaseImpl(stackOverflowApi)
+
+    @Provides
+    @SearchScope
+    fun provideImageLoader() : ImageLoader = ImageLoader(activity)
 }

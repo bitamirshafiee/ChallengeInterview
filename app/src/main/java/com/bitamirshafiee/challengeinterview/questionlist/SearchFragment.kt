@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bitamirshafiee.challengeinterview.MainActivity
 import com.bitamirshafiee.challengeinterview.R
+import com.bitamirshafiee.challengeinterview.common.ViewModelFactory
 import com.bitamirshafiee.challengeinterview.databinding.FragmentQuestionBinding
 import com.bitamirshafiee.challengeinterview.di.search.SearchModule
 import javax.inject.Inject
@@ -19,7 +20,7 @@ class SearchFragment : Fragment() {
     private val binding get() = _binding
 
     @Inject
-    lateinit var factory: QuestionListViewModelImpl.Factory
+    lateinit var factory: ViewModelFactory
 
     private val viewModel: QuestionListViewModel by viewModels { factory }
 
@@ -29,7 +30,7 @@ class SearchFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         (activity as MainActivity).getNetworkingComponent()
-            .provideSearchComponent(SearchModule())
+            .provideSearchComponent(SearchModule(activity as MainActivity))
             .inject(this)
     }
 
